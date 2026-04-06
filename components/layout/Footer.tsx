@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail } from "lucide-react";
+import { MapPin, Phone } from "lucide-react";
 import { BUSINESS, NAV_LINKS, HOURS } from "@/lib/constants";
 
 export default function Footer() {
@@ -84,15 +84,6 @@ export default function Footer() {
                 >
                   <Phone size={14} className="flex-shrink-0 text-primary" />
                   {BUSINESS.phone}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`mailto:${BUSINESS.email}`}
-                  className="flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors"
-                >
-                  <Mail size={14} className="flex-shrink-0 text-primary" />
-                  {BUSINESS.email}
                 </a>
               </li>
               {BUSINESS.instagram && (

@@ -7,9 +7,8 @@ export const BUSINESS = {
   address: "85 Ellesmere Rd, Scarborough, ON M1R 4B9",
   addressNote: "Located in Parkway Mall",
   phone: "(416) 391-0388",
-  email: "[TODO: info@maplephotoimaging.ca]",
   googleMapsUrl: "https://maps.app.goo.gl/hvRoAXDqXbLjKkZk9",
-  googleReviewsUrl: "https://g.page/r/", // TODO: Replace with real Google Business review link
+  googleReviewsUrl: "https://g.page/r/CaHNjrsn6YWFEAE/review",
   domain: "https://maplephotoimaging.ca",
   instagram: "", // TODO: Add if applicable
 };

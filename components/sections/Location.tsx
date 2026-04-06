@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Clock, ExternalLink } from "lucide-react";
+import { MapPin, Phone, Clock, ExternalLink } from "lucide-react";
 import { BUSINESS, HOURS } from "@/lib/constants";
 
 export default function Location() {
@@ -76,24 +76,6 @@ export default function Location() {
                     className="text-sm text-text-primary hover:text-primary transition-colors"
                   >
                     {BUSINESS.phone}
-                  </a>
-                </div>
-              </li>
-
-              {/* Email */}
-              <li className="flex items-start gap-3">
-                <span className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Mail size={16} className="text-primary" aria-hidden="true" />
-                </span>
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-text-secondary mb-1">
-                    Email
-                  </p>
-                  <a
-                    href={`mailto:${BUSINESS.email}`}
-                    className="text-sm text-text-primary hover:text-primary transition-colors"
-                  >
-                    {BUSINESS.email}
                   </a>
                 </div>
               </li>
