@@ -4,10 +4,11 @@
 export const BUSINESS = {
   name: "Maple Photo Imaging",
   tagline: "Professional ID photos for every journey.",
-  address: "[TODO: Full street address, Toronto, ON]",
-  phone: "[TODO: (416) 000-0000]",
+  address: "85 Ellesmere Rd, Scarborough, ON M1R 4B9",
+  addressNote: "Located in Parkway Mall",
+  phone: "(416) 391-0388",
   email: "[TODO: info@maplephotoimaging.ca]",
-  googleMapsUrl: "https://maps.google.com/?q=Toronto+ON", // TODO: Replace with exact embed URL
+  googleMapsUrl: "https://maps.app.goo.gl/hvRoAXDqXbLjKkZk9",
   googleReviewsUrl: "https://g.page/r/", // TODO: Replace with real Google Business review link
   domain: "https://maplephotoimaging.ca",
   instagram: "", // TODO: Add if applicable

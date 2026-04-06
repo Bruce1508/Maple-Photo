@@ -56,6 +56,9 @@ export default function Location() {
                     Address
                   </p>
                   <p className="text-sm text-text-primary">{BUSINESS.address}</p>
+                  {BUSINESS.addressNote && (
+                    <p className="text-xs text-text-secondary mt-0.5">{BUSINESS.addressNote}</p>
+                  )}
                 </div>
               </li>
 

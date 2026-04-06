@@ -66,12 +66,13 @@ export default function RootLayout({
   "name": "Maple Photo Imaging",
   "description": "Professional passport and ID photo studio in Toronto. Same-day prints for Canada, USA, and 50+ countries.",
   "url": "https://maplephotoimaging.ca",
-  "telephone": "[TODO: add phone]",
+  "telephone": "(416) 391-0388",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "[TODO: add street address]",
-    "addressLocality": "Toronto",
+    "streetAddress": "85 Ellesmere Rd",
+    "addressLocality": "Scarborough",
     "addressRegion": "ON",
+    "postalCode": "M1R 4B9",
     "addressCountry": "CA"
   },
   "openingHoursSpecification": [
