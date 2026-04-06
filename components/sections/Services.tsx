@@ -1,3 +1,5 @@
+"use client";
+
 import {
   BookOpen,
   Globe,
@@ -5,93 +7,143 @@ import {
   Car,
   GraduationCap,
   Plane,
+  ArrowRight,
   type LucideIcon,
 } from "lucide-react";
 import { SERVICES } from "@/lib/constants";
 
 const SERVICE_ICONS: LucideIcon[] = [
-  BookOpen,      // Canadian Passport
-  Globe,         // US Visa / Green Card
-  ShieldCheck,   // PR Card / Citizenship
-  Car,           // Ontario Driver's License
-  GraduationCap, // Student / School ID
-  Plane,         // International Passports
+  BookOpen,
+  Globe,
+  ShieldCheck,
+  Car,
+  GraduationCap,
+  Plane,
 ];
 
-const ICON_STYLES = [
-  "bg-sky-50 text-sky-600",
-  "bg-blue-50 text-blue-600",
-  "bg-green-50 text-green-600",
-  "bg-amber-50 text-amber-600",
-  "bg-violet-50 text-violet-600",
-  "bg-indigo-50 text-indigo-600",
+const ACCENT_COLORS = [
+  "text-sky-600",
+  "text-blue-600",
+  "text-emerald-600",
+  "text-amber-600",
+  "text-violet-600",
+  "text-indigo-600",
+];
+
+const ACCENT_BG = [
+  "bg-sky-50 border-sky-200",
+  "bg-blue-50 border-blue-200",
+  "bg-emerald-50 border-emerald-200",
+  "bg-amber-50 border-amber-200",
+  "bg-violet-50 border-violet-200",
+  "bg-indigo-50 border-indigo-200",
 ];
 
 export default function Services() {
   return (
-    <section id="services" className="py-20 lg:py-28 bg-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <section id="services" className="py-24 lg:py-32 bg-white">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-14">
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary mb-4">
+        <div className="mb-16">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-5">
             What We Offer
-          </span>
-          <h2 className="font-heading text-3xl sm:text-4xl text-text-primary mb-4">
-            Photos for Every Country &amp; Purpose
-          </h2>
-          <p className="text-text-secondary text-lg leading-relaxed">
-            Whether it&apos;s a Canadian passport or an international visa, we
-            know the exact specifications required.
           </p>
+          <h2 className="font-heading text-5xl sm:text-6xl lg:text-7xl text-text-primary leading-[1.05] tracking-tight">
+            Photos for Every<br />
+            <span className="relative inline-block">
+              <span className="relative z-10">Country &amp; Purpose</span>
+              <span
+                aria-hidden="true"
+                className="absolute left-0 bottom-1 w-full h-[6px] bg-primary/20 rounded-full"
+              />
+            </span>
+          </h2>
         </div>
 
-        {/* Cards grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {/* Divider */}
+        <div className="h-px bg-border mb-2" />
+
+        {/* Service rows */}
+        <div className="divide-y divide-border">
           {SERVICES.map((service, i) => {
             const Icon = SERVICE_ICONS[i % SERVICE_ICONS.length];
-            const iconStyle = ICON_STYLES[i % ICON_STYLES.length];
+            const color = ACCENT_COLORS[i % ACCENT_COLORS.length];
+            const bg = ACCENT_BG[i % ACCENT_BG.length];
             return (
-              <article
+              <div
                 key={service.name}
-                className="group bg-brand-bg hover:bg-white border border-border hover:border-primary/30 rounded-2xl p-6 transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
+                className="group flex items-center gap-5 py-5 sm:py-6 hover:bg-brand-bg transition-colors duration-150 -mx-4 px-4 sm:-mx-6 sm:px-6 cursor-default"
               >
-                {/* SVG icon */}
+                {/* Index number */}
+                <span className="hidden sm:block text-xs font-bold text-text-secondary/40 w-5 text-right flex-shrink-0 tabular-nums">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+
+                {/* Icon */}
                 <div
-                  className={`w-11 h-11 rounded-xl flex items-center justify-center mb-4 ${iconStyle}`}
+                  className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${color} bg-opacity-10 border ${bg}`}
                   aria-hidden="true"
                 >
-                  <Icon size={20} strokeWidth={1.75} />
+                  <Icon size={18} strokeWidth={1.75} />
                 </div>
 
-                <div className="flex items-start justify-between gap-2 mb-2">
-                  <h3 className="font-semibold text-text-primary leading-snug">
+                {/* Name + note */}
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-semibold text-text-primary text-sm sm:text-base leading-snug">
                     {service.name}
                   </h3>
-                  <span className="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded-full whitespace-nowrap flex-shrink-0">
-                    From $21.99
-                  </span>
+                  <p className="text-xs sm:text-sm text-text-secondary mt-0.5 truncate">
+                    {service.note}
+                  </p>
                 </div>
 
-                <p className="text-xs font-semibold text-warm mb-1">
+                {/* Spec badge */}
+                <span
+                  className={`hidden sm:inline-flex text-xs font-semibold px-2.5 py-1 rounded-full border ${bg} ${color} flex-shrink-0`}
+                >
                   {service.spec}
-                </p>
-                <p className="text-sm text-text-secondary">{service.note}</p>
-              </article>
+                </span>
+
+                {/* Price */}
+                <div className="text-right flex-shrink-0">
+                  <p className="text-sm font-bold text-text-primary">$21.99</p>
+                  <p className="text-xs text-text-secondary">from</p>
+                </div>
+
+                {/* Arrow */}
+                <ArrowRight
+                  size={16}
+                  className="text-text-secondary/30 group-hover:text-primary group-hover:translate-x-1 transition-all duration-150 flex-shrink-0 hidden sm:block"
+                />
+              </div>
             );
           })}
         </div>
 
-        {/* Footer note */}
-        <p className="text-center text-sm text-text-secondary mt-10">
-          Don&apos;t see your country?{" "}
+        {/* Bottom divider */}
+        <div className="h-px bg-border mt-2" />
+
+        {/* Footer */}
+        <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <p className="text-sm text-text-secondary">
+            Don&apos;t see your country?{" "}
+            <a
+              href="#location"
+              className="text-primary font-semibold hover:underline underline-offset-2"
+            >
+              Contact us
+            </a>{" "}
+            — we cover all international formats.
+          </p>
           <a
-            href="#location"
-            className="text-primary font-medium hover:underline"
+            href="#booking"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all duration-150"
           >
-            Contact us
-          </a>{" "}
-          — we cover all international formats.
-        </p>
+            Book your session
+            <ArrowRight size={15} />
+          </a>
+        </div>
       </div>
     </section>
   );

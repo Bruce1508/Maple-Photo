@@ -95,34 +95,74 @@ export default function Hero() {
 
               {/* Photo studio card */}
               <div className="relative bg-white rounded-3xl shadow-2xl p-6 sm:p-8 border border-border">
-                {/* ID photo frame */}
-                <div className="aspect-[4/5] rounded-2xl mb-6 relative overflow-hidden bg-slate-50 border border-slate-200">
-                  {/* Top brand bar */}
-                  <div className="absolute top-0 inset-x-0 h-1 bg-primary rounded-t-2xl" aria-hidden="true" />
-
-                  {/* Dimension annotation */}
-                  <div className="absolute top-4 inset-x-0 flex justify-center">
-                    <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">
-                      50 × 70 mm
-                    </span>
-                  </div>
-
-                  {/* Portrait subject — CSS shapes, clearly intentional */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center" aria-hidden="true">
-                    <div className="w-20 h-20 rounded-full bg-slate-200" />
-                    <div className="w-36 h-24 rounded-t-[100%] bg-slate-200 -mt-5" />
-                  </div>
-
-                  {/* Subtle fade at bottom */}
+                {/* ID photo frame — viewfinder style */}
+                <div
+                  className="aspect-[4/5] rounded-2xl mb-6 relative bg-[#F0F4F8] border border-slate-200 overflow-hidden"
+                  aria-hidden="true"
+                >
+                  {/* Dot-grid studio backdrop */}
                   <div
-                    className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-slate-50 to-transparent"
-                    aria-hidden="true"
+                    className="absolute inset-0 opacity-[0.35]"
+                    style={{
+                      backgroundImage:
+                        "radial-gradient(circle, #94A3B8 1px, transparent 1px)",
+                      backgroundSize: "20px 20px",
+                    }}
                   />
 
-                  {/* Compliance badge inside frame */}
+                  {/* Top ruler bar */}
+                  <div className="absolute top-0 inset-x-0 h-0.5 bg-primary/40" />
+
+                  {/* ── Width annotation (top) ── */}
+                  <div className="absolute top-5 inset-x-8 flex items-center gap-1.5">
+                    <div className="flex-1 h-px bg-slate-400/50" />
+                    <span className="text-[9px] font-bold tracking-widest text-slate-400 uppercase">
+                      50 mm
+                    </span>
+                    <div className="flex-1 h-px bg-slate-400/50" />
+                  </div>
+
+                  {/* ── Height annotation (left side) ── */}
+                  <div className="absolute left-3 top-10 bottom-10 flex flex-col items-center gap-1">
+                    <div className="flex-1 w-px bg-slate-400/50" />
+                    <span
+                      className="text-[9px] font-bold tracking-widest text-slate-400 uppercase"
+                      style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
+                    >
+                      70 mm
+                    </span>
+                    <div className="flex-1 w-px bg-slate-400/50" />
+                  </div>
+
+                  {/* ── Viewfinder corners ── */}
+                  {/* Top-left */}
+                  <div className="absolute top-10 left-8 w-5 h-5 border-t-2 border-l-2 border-primary/70" />
+                  {/* Top-right */}
+                  <div className="absolute top-10 right-8 w-5 h-5 border-t-2 border-r-2 border-primary/70" />
+                  {/* Bottom-left */}
+                  <div className="absolute bottom-14 left-8 w-5 h-5 border-b-2 border-l-2 border-primary/70" />
+                  {/* Bottom-right */}
+                  <div className="absolute bottom-14 right-8 w-5 h-5 border-b-2 border-r-2 border-primary/70" />
+
+                  {/* ── Center crosshair ── */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    {/* Horizontal line */}
+                    <div className="absolute w-6 h-px bg-primary/40" />
+                    {/* Vertical line */}
+                    <div className="absolute w-px h-6 bg-primary/40" />
+                    {/* Center dot */}
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary/50" />
+                  </div>
+
+                  {/* ── Face position guide (oval) ── */}
+                  <div
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] w-20 h-24 rounded-full border border-dashed border-slate-400/40"
+                  />
+
+                  {/* Compliance stamp */}
                   <div className="absolute bottom-4 inset-x-0 flex justify-center">
                     <span className="inline-flex items-center gap-1.5 bg-green-500 text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-sm">
-                      <Check size={11} strokeWidth={3} aria-hidden="true" />
+                      <Check size={11} strokeWidth={3} />
                       Government Compliant
                     </span>
                   </div>
