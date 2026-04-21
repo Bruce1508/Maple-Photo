@@ -16,7 +16,7 @@ export const BUSINESS = {
 export const HOURS = [
   { day: "Monday – Friday", hours: "9:00 AM – 6:00 PM", open: true },
   { day: "Saturday", hours: "10:00 AM – 5:00 PM", open: true },
-  { day: "Sunday", hours: "Closed", open: false },
+  { day: "Sunday", hours: "12:00 PM – 5:00 PM", open: true },
 ];
 
 export const NAV_LINKS = [
@@ -51,12 +51,6 @@ export const SERVICES: Service[] = [
     name: "PR Card / Citizenship",
     spec: "IRCC format",
     note: "Permanent Resident & citizenship photos",
-  },
-  {
-    emoji: "🪪",
-    name: "Ontario Driver's License",
-    spec: "DriveTest approved",
-    note: "MTO compliant specification",
   },
   {
     emoji: "🎓",

@@ -12,12 +12,13 @@ export default function FAQ() {
   return (
     <section id="faq" className="py-20 lg:py-28 bg-white">
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
+
         {/* Header */}
         <div className="text-center mb-14">
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary mb-4">
+          <p className="text-xs font-bold uppercase tracking-[0.15em] text-primary mb-4">
             FAQ
-          </span>
-          <h2 className="font-heading text-3xl sm:text-4xl text-text-primary mb-4">
+          </p>
+          <h2 className="font-heading text-3xl sm:text-4xl font-bold text-house-green mb-4 tracking-tight">
             Frequently Asked Questions
           </h2>
           <p className="text-text-secondary text-lg">
@@ -26,10 +27,7 @@ export default function FAQ() {
         </div>
 
         {/* Accordion */}
-        <div
-          className="divide-y divide-border"
-          role="list"
-        >
+        <div className="divide-y divide-[#e7e7e7]" role="list">
           {FAQ_ITEMS.map((item, i) => {
             const isOpen = openIndex === i;
             return (
@@ -43,8 +41,8 @@ export default function FAQ() {
                 >
                   <span
                     className={`font-medium text-sm sm:text-base transition-colors ${
-                      isOpen ? "text-primary" : "text-text-primary"
-                    } group-hover:text-primary`}
+                      isOpen ? "text-primary" : "text-text-primary group-hover:text-primary"
+                    }`}
                   >
                     {item.question}
                   </span>
@@ -52,7 +50,7 @@ export default function FAQ() {
                     className={`flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-all duration-200 ${
                       isOpen
                         ? "bg-primary text-white"
-                        : "bg-brand-bg text-text-secondary group-hover:bg-primary/10 group-hover:text-primary"
+                        : "bg-brand-bg text-text-secondary group-hover:bg-green-light group-hover:text-primary"
                     }`}
                     aria-hidden="true"
                   >
@@ -64,27 +62,25 @@ export default function FAQ() {
                   id={`faq-answer-${i}`}
                   role="region"
                   aria-labelledby={`faq-question-${i}`}
-                  className={`overflow-hidden transition-all duration-300 ${
+                  className={`overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${
                     isOpen ? "max-h-48 pb-5" : "max-h-0"
                   }`}
                 >
-                  <p className="text-sm text-text-secondary leading-relaxed">
-                    {item.answer}
-                  </p>
+                  <p className="text-sm text-text-secondary leading-relaxed">{item.answer}</p>
                 </div>
               </div>
             );
           })}
         </div>
 
-        {/* CTA below FAQ */}
-        <div className="mt-12 bg-brand-bg rounded-2xl p-6 text-center border border-border">
-          <p className="text-text-secondary text-sm mb-4">
+        {/* CTA block — dark green band */}
+        <div className="mt-12 bg-house-green rounded-xl p-8 text-center">
+          <p className="text-white/70 text-sm mb-5">
             Still have questions? We&apos;re happy to help.
           </p>
           <a
             href="#location"
-            className="inline-flex items-center gap-2 bg-primary text-white font-semibold px-6 py-2.5 rounded-full text-sm hover:bg-primary-dark transition-colors"
+            className="inline-flex items-center gap-2 bg-white text-primary font-semibold px-6 py-2.5 rounded-full text-sm hover:bg-green-light active:scale-95 transition-all duration-200"
           >
             Contact Us
           </a>

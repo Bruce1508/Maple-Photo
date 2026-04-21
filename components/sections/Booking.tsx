@@ -1,7 +1,6 @@
 "use client";
 
 import Script from "next/script";
-import { Info } from "lucide-react";
 
 export default function Booking() {
   const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL;
@@ -9,35 +8,30 @@ export default function Booking() {
   return (
     <section id="booking" className="py-20 lg:py-28 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
+
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary mb-4">
+          <p className="text-xs font-bold uppercase tracking-[0.15em] text-primary mb-4">
             Booking
-          </span>
-          <h2 className="font-heading text-3xl sm:text-4xl text-text-primary mb-4">
+          </p>
+          <h2 className="font-heading text-3xl sm:text-4xl font-bold text-house-green mb-4 tracking-tight">
             Book Your Appointment Online
           </h2>
           <p className="text-text-secondary text-lg">
-            Pick a time that works for you. You&apos;ll get an email
-            confirmation right away.
+            Pick a time that works for you. You&apos;ll get an email confirmation right away.
           </p>
         </div>
 
         {/* Walk-in notice */}
-        <div className="flex items-start gap-3 bg-warm/10 border border-warm/30 rounded-2xl px-5 py-4 mb-8">
-          <Info
-            size={18}
-            className="text-warm flex-shrink-0 mt-0.5"
-            aria-hidden="true"
-          />
+        <div className="flex items-start gap-3 bg-green-light/30 border border-primary/20 rounded-xl px-5 py-4 mb-8">
+          <span className="text-primary mt-0.5 flex-shrink-0 text-lg" aria-hidden="true">ⓘ</span>
           <p className="text-sm text-text-primary">
-            <strong>Prefer to walk in?</strong> We welcome walk-ins during all
-            business hours — no appointment needed. Come in at your convenience.
+            <strong>Prefer to walk in?</strong> We welcome walk-ins during all business hours — no appointment needed. Come in at your convenience.
           </p>
         </div>
 
         {/* Calendly embed */}
-        <div className="rounded-2xl overflow-hidden border border-border shadow-sm bg-brand-bg">
+        <div className="rounded-xl overflow-hidden border border-[#e7e7e7] shadow-[0_0_0.5px_rgba(0,0,0,0.14),0_1px_1px_rgba(0,0,0,0.24)] bg-brand-bg">
           {calendlyUrl ? (
             <>
               <div
@@ -51,12 +45,11 @@ export default function Booking() {
               />
             </>
           ) : (
-            // Fallback when Calendly URL is not configured
             <div
               className="flex flex-col items-center justify-center py-20 px-6 text-center"
               style={{ minHeight: "400px" }}
             >
-              <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
+              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                 <svg
                   className="w-7 h-7 text-primary"
                   fill="none"
@@ -72,16 +65,15 @@ export default function Booking() {
                   />
                 </svg>
               </div>
-              <h3 className="font-semibold text-text-primary mb-2">
+              <h3 className="font-semibold text-house-green mb-2">
                 Online booking coming soon
               </h3>
               <p className="text-sm text-text-secondary mb-6 max-w-sm">
-                Call or email us to schedule your appointment, or simply walk
-                in during business hours.
+                Call or email us to schedule your appointment, or simply walk in during business hours.
               </p>
               <a
                 href="#location"
-                className="inline-flex items-center gap-2 bg-primary text-white font-semibold px-6 py-2.5 rounded-full text-sm hover:bg-primary-dark transition-colors"
+                className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark active:scale-95 text-white font-semibold px-6 py-2.5 rounded-full text-sm transition-all duration-200"
               >
                 View Contact Info
               </a>

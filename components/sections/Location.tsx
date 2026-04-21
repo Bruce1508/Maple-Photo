@@ -9,12 +9,13 @@ export default function Location() {
   return (
     <section id="location" className="py-20 lg:py-28 bg-brand-bg">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
+
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-14">
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary mb-4">
+          <p className="text-xs font-bold uppercase tracking-[0.15em] text-primary mb-4">
             Location
-          </span>
-          <h2 className="font-heading text-3xl sm:text-4xl text-text-primary mb-4">
+          </p>
+          <h2 className="font-heading text-3xl sm:text-4xl font-bold text-house-green mb-4 tracking-tight">
             Find Us in Toronto
           </h2>
           <p className="text-text-secondary text-lg">
@@ -24,7 +25,7 @@ export default function Location() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
           {/* Map embed */}
-          <div className="rounded-2xl overflow-hidden border border-border shadow-sm aspect-[4/3] lg:aspect-auto lg:h-[420px] bg-white">
+          <div className="rounded-xl overflow-hidden border border-[#e7e7e7] shadow-[0_0_0.5px_rgba(0,0,0,0.14),0_1px_1px_rgba(0,0,0,0.24)] aspect-[4/3] lg:aspect-auto lg:h-[420px] bg-white">
             {/* TODO: Replace src with NEXT_PUBLIC_GOOGLE_MAPS_EMBED_URL in .env.local */}
             <iframe
               src={mapsUrl}
@@ -40,8 +41,8 @@ export default function Location() {
           </div>
 
           {/* Info card */}
-          <div className="bg-white rounded-2xl border border-border p-7 lg:p-8">
-            <h3 className="font-heading text-xl text-text-primary mb-6">
+          <div className="bg-white rounded-xl border border-[#e7e7e7] shadow-[0_0_0.5px_rgba(0,0,0,0.14),0_1px_1px_rgba(0,0,0,0.24)] p-7 lg:p-8">
+            <h3 className="font-heading text-xl font-bold text-house-green mb-6 tracking-tight">
               Studio Info
             </h3>
 
@@ -52,9 +53,7 @@ export default function Location() {
                   <MapPin size={16} className="text-primary" aria-hidden="true" />
                 </span>
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-text-secondary mb-1">
-                    Address
-                  </p>
+                  <p className="text-xs font-bold uppercase tracking-wider text-text-secondary mb-1">Address</p>
                   <p className="text-sm text-text-primary">{BUSINESS.address}</p>
                   {BUSINESS.addressNote && (
                     <p className="text-xs text-text-secondary mt-0.5">{BUSINESS.addressNote}</p>
@@ -68,9 +67,7 @@ export default function Location() {
                   <Phone size={16} className="text-primary" aria-hidden="true" />
                 </span>
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-text-secondary mb-1">
-                    Phone
-                  </p>
+                  <p className="text-xs font-bold uppercase tracking-wider text-text-secondary mb-1">Phone</p>
                   <a
                     href={`tel:${BUSINESS.phone}`}
                     className="text-sm text-text-primary hover:text-primary transition-colors"
@@ -86,23 +83,12 @@ export default function Location() {
                   <Clock size={16} className="text-primary" aria-hidden="true" />
                 </span>
                 <div className="flex-grow">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-text-secondary mb-2">
-                    Hours
-                  </p>
+                  <p className="text-xs font-bold uppercase tracking-wider text-text-secondary mb-2">Hours</p>
                   <ul className="space-y-1.5" role="list">
                     {HOURS.map((h) => (
-                      <li
-                        key={h.day}
-                        className="flex items-center justify-between gap-4"
-                      >
-                        <span className="text-sm text-text-secondary">
-                          {h.day}
-                        </span>
-                        <span
-                          className={`text-sm font-medium ${
-                            h.open ? "text-text-primary" : "text-text-secondary"
-                          }`}
-                        >
+                      <li key={h.day} className="flex items-center justify-between gap-4">
+                        <span className="text-sm text-text-secondary">{h.day}</span>
+                        <span className={`text-sm font-medium ${h.open ? "text-text-primary" : "text-text-secondary"}`}>
                           {h.hours}
                         </span>
                       </li>
@@ -112,12 +98,12 @@ export default function Location() {
               </li>
             </ul>
 
-            {/* Directions button */}
+            {/* Directions CTA */}
             <a
               href={BUSINESS.googleMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-7 flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white font-semibold py-3 rounded-full text-sm transition-all duration-200 hover:shadow-md"
+              className="mt-7 flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark active:scale-95 text-white font-semibold py-3 rounded-full text-sm transition-all duration-200"
             >
               Get Directions
               <ExternalLink size={14} aria-hidden="true" />

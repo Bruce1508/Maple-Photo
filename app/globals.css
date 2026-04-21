@@ -1,65 +1,68 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand colors */
-  --color-primary: #0EA5E9;
-  --color-primary-dark: #0284C7;
-  --color-accent: #DC2626;
-  --color-warm: #F59E0B;
-  --color-brand-bg: #F8FAFC;
-  --color-surface: #FFFFFF;
-  --color-text-primary: #0F172A;
-  --color-text-secondary: #64748B;
-  --color-border: #E2E8F0;
+  /* Four-tier green system — each mapped to ONE surface role */
+  --color-primary: #00754A;          /* Green Accent — CTA buttons */
+  --color-primary-dark: #006241;     /* Starbucks Green — headings, hover states */
+  --color-house-green: #1E3932;      /* House Green — feature bands, footer */
+  --color-green-uplift: #2b5148;     /* Green Uplift — decorative accents */
+  --color-green-light: #d4e9e2;      /* Green Light — valid-state tints */
 
-  /* Fonts */
-  --font-heading: var(--font-dm-serif);
+  /* Gold — reserved for trust/ceremony moments (stars, trust badges) */
+  --color-accent: #cba258;
+  --color-warm: #cba258;
+
+  /* Surfaces */
+  --color-brand-bg: #f2f0eb;         /* Neutral Warm — primary page canvas */
+  --color-ceramic: #edebe9;          /* Ceramic — zone separators */
+  --color-surface: #ffffff;
+  --color-neutral-cool: #f9f9f9;
+
+  /* Text */
+  --color-text-primary: #141414;     /* ~rgba(0,0,0,0.87) — warm near-black */
+  --color-text-secondary: #767676;   /* ~rgba(0,0,0,0.58) — secondary copy */
+  --color-border: #e7e7e7;
+
+  /* Fonts — DM Sans as SoDoSans substitute throughout main flow */
+  --font-heading: var(--font-dm-sans);
   --font-body: var(--font-dm-sans);
 
-  /* Custom animations */
+  /* Animations */
   --animate-fade-up: fade-up 0.7s ease-out forwards;
   --animate-fade-in: fade-in 0.5s ease-out forwards;
 }
 
-/* Keyframes */
 @keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(1.5rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(1.5rem); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
-/* Base */
+@keyframes check-in {
+  from { opacity: 0; transform: translateX(-8px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  background-color: #F8FAFC;
-  color: #0F172A;
+  background-color: #f2f0eb;
+  color: #141414;
   font-family: var(--font-dm-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.01em;
 }
 
-/* Heading style helper */
 .font-heading {
-  font-family: var(--font-dm-serif), Georgia, serif;
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
 }
 
-/* Calendly embed override */
 .calendly-inline-widget {
   min-width: 320px;
 }
