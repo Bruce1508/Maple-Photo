@@ -3,6 +3,7 @@ import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
 import Services from "@/components/sections/Services";
 import Pricing from "@/components/sections/Pricing";
+import Printing from "@/components/sections/Printing";
 import Booking from "@/components/sections/Booking";
 import Reviews from "@/components/sections/Reviews";
 import FAQ from "@/components/sections/FAQ";
@@ -16,6 +17,7 @@ export default function HomePage() {
         <Hero />
         <Services />
         <Pricing />
+        <Printing />
         <Booking />
         <Reviews />
         <FAQ />

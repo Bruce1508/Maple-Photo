@@ -22,6 +22,7 @@ export const HOURS = [
 export const NAV_LINKS = [
   { label: "Services", href: "#services" },
   { label: "Pricing", href: "#pricing" },
+  { label: "Printing", href: "#printing" },
   { label: "Book Now", href: "#booking" },
   { label: "Location", href: "#location" },
 ];
@@ -63,6 +64,18 @@ export const SERVICES: Service[] = [
     name: "International Passports",
     spec: "50+ countries",
     note: "Ask us for your country's format",
+  },
+  {
+    emoji: "🖨️",
+    name: "Digital Photo Printing",
+    spec: "4×6 to 8×12",
+    note: "Bring your USB drive or memory card",
+  },
+  {
+    emoji: "🔍",
+    name: "Photo Enlarging",
+    spec: "Up to 8×12",
+    note: "Bring your original photo — we copy & enlarge it",
   },
 ];
 
@@ -187,6 +200,33 @@ export const FAQ_ITEMS: FaqItem[] = [
       "No appointment is needed — walk-ins are always welcome during business hours. Book online if you'd prefer a guaranteed time slot and skip any potential wait.",
   },
 ];
+
+export interface PrintSize {
+  size: string;
+  price: string;
+  note?: string;
+}
+
+export interface PrintTier {
+  range: string;
+  price: string;
+}
+
+export const PHOTO_PRINTING = {
+  standardTiers: [
+    { range: "1 – 49 prints", price: "35¢ each" },
+    { range: "50 – 99 prints", price: "30¢ each" },
+    { range: "100+ prints", price: "25¢ each" },
+  ] as PrintTier[],
+  largeSizes: [
+    { size: '5×7"', price: "$0.99 each" },
+    { size: '8×10"', price: "$2.99 each" },
+    { size: '8×12"', price: "$3.99 each" },
+  ] as PrintSize[],
+  acceptedMedia: ["USB drive", "SD card", "CF card", "Memory stick"],
+  notAccepted: "We do not accept photos sent via phone, email, or cloud link.",
+  enlargingNote: "Bring your original physical photo — we enlarge or copy it at the same rates as digital prints.",
+};
 
 export const TRUST_BADGES = [
   { icon: "✅", text: "Guaranteed accepted or retake free" },
