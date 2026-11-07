@@ -28,7 +28,6 @@ export const NAV_LINKS = [
 ];
 
 export interface Service {
-  emoji: string;
   name: string;
   spec: string;
   note: string;
@@ -36,46 +35,39 @@ export interface Service {
 
 export const SERVICES: Service[] = [
   {
-    emoji: "🇨🇦",
     name: "Canadian Passport",
     spec: "50mm × 70mm",
     note: "White background, IRCC compliant",
   },
   {
-    emoji: "🇺🇸",
     name: "US Visa / Green Card",
     spec: '2" × 2"',
     note: "USCIS compliant format",
   },
   {
-    emoji: "🍁",
     name: "PR Card / Citizenship",
     spec: "IRCC format",
     note: "Permanent Resident & citizenship photos",
   },
   {
-    emoji: "🎓",
     name: "Student / School ID",
     spec: "Custom sizes",
     note: "University, college, and school IDs",
   },
   {
-    emoji: "🌍",
     name: "International Passports",
     spec: "50+ countries",
     note: "Ask us for your country's format",
   },
   {
-    emoji: "🖨️",
     name: "Digital Photo Printing",
     spec: "4×6 to 8×12",
     note: "Bring your USB drive or memory card",
   },
   {
-    emoji: "🔍",
     name: "Photo Enlarging",
     spec: "Up to 8×12",
-    note: "Bring your original photo — we copy & enlarge it",
+    note: "Bring your original photo, we copy and enlarge it",
   },
 ];
 
@@ -229,7 +221,7 @@ export const PHOTO_PRINTING = {
 };
 
 export const TRUST_BADGES = [
-  { icon: "✅", text: "Guaranteed accepted or retake free" },
-  { icon: "✅", text: "Same-day prints" },
-  { icon: "✅", text: "50+ country formats" },
+  { text: "Guaranteed accepted or retake free" },
+  { text: "Same-day prints" },
+  { text: "50+ country formats" },
 ];

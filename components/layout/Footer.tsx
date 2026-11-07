@@ -1,38 +1,40 @@
-import { MapPin, Phone } from "lucide-react";
-import Image from "next/image";
 import { BUSINESS, NAV_LINKS, HOURS } from "@/lib/constants";
+import MapleMark from "@/components/ui/MapleMark";
+import Reveal from "@/components/ui/Reveal";
 
 export default function Footer() {
   return (
-    <footer className="bg-house-green text-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 lg:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+    <footer className="bg-olive text-white">
+      <div className="px-4 sm:px-6 lg:px-10 pt-14 lg:pt-20 pb-10">
+        <Reveal className="flex items-center gap-3 mb-14 lg:mb-20">
+          <MapleMark className="w-8 h-8 lg:w-10 lg:h-10 text-lime shrink-0" />
+          <span className="font-display font-display-title text-[length:var(--step-display)] leading-none">Maple</span>
+        </Reveal>
 
-          {/* Brand */}
-          <div className="sm:col-span-2 lg:col-span-1">
-            <div className="flex items-center gap-2.5 mb-3">
-              <Image src="/camera.png" alt="" width={24} height={24} className="flex-shrink-0" />
-              <span className="text-base font-bold tracking-tight">
-                Maple Photo Imaging
-              </span>
-            </div>
-            <p className="text-white/60 text-sm leading-relaxed">
-              {BUSINESS.tagline}
-            </p>
+        <div className="grid grid-cols-12 gap-x-6 gap-y-10">
+          <div className="col-span-12 md:col-span-5 space-y-2">
+            <a
+              href={`tel:${BUSINESS.phone}`}
+              className="block text-[length:var(--step-lead)] font-display text-lime hover:text-white transition-colors"
+            >
+              {BUSINESS.phone}
+            </a>
+            <a
+              href={BUSINESS.googleMapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block text-[length:var(--step-lead)] font-display text-lime hover:text-white transition-colors"
+            >
+              {BUSINESS.address}
+            </a>
           </div>
 
-          {/* Quick links */}
-          <div>
-            <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-white/40 mb-4">
-              Quick Links
-            </h3>
+          <div className="col-span-6 md:col-start-7 md:col-span-3">
+            <p className="text-[length:var(--step-small)] text-white/75 mb-3">Quick links</p>
             <ul className="space-y-2" role="list">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-white/70 hover:text-white transition-colors"
-                  >
+                  <a href={link.href} className="text-[length:var(--step-small)] text-white/80 hover:text-white transition-colors">
                     {link.label}
                   </a>
                 </li>
@@ -40,100 +42,67 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Hours */}
-          <div>
-            <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-white/40 mb-4">
-              Hours
-            </h3>
+          <div className="col-span-6 md:col-span-2">
+            <p className="text-[length:var(--step-small)] text-white/75 mb-3">Hours</p>
             <ul className="space-y-2" role="list">
               {HOURS.map((h) => (
-                <li key={h.day} className="text-sm">
-                  <span className="text-white/70">{h.day}</span>
-                  <br />
-                  <span className={h.open ? "text-white font-medium" : "text-white/40"}>
-                    {h.hours}
-                  </span>
+                <li key={h.day} className="text-[length:var(--step-small)] text-white/80">
+                  {h.day}: {h.hours}
                 </li>
               ))}
             </ul>
           </div>
-
-          {/* Contact */}
-          <div>
-            <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-white/40 mb-4">
-              Contact
-            </h3>
-            <ul className="space-y-3" role="list">
-              <li>
-                <a
-                  href={`https://maps.google.com/?q=${encodeURIComponent(BUSINESS.address)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-2 text-sm text-white/70 hover:text-white transition-colors"
-                >
-                  <MapPin size={14} className="mt-0.5 flex-shrink-0 text-primary" />
-                  {BUSINESS.address}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`tel:${BUSINESS.phone}`}
-                  className="flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors"
-                >
-                  <Phone size={14} className="flex-shrink-0 text-primary" />
-                  {BUSINESS.phone}
-                </a>
-              </li>
-              {BUSINESS.instagram && (
-                <li>
-                  <a
-                    href={BUSINESS.instagram}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors"
-                  >
-                    <InstagramGlyph className="w-3.5 h-3.5 flex-shrink-0 text-primary" aria-hidden />
-                    Instagram
-                  </a>
-                </li>
-              )}
-            </ul>
-          </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-white/40">
-            © 2026 Maple Photo Imaging. All rights reserved.
+        <div className="mt-16 pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <p className="text-[length:var(--step-small)] text-white/70">
+            © 2026 Maple Photo Imaging. Toronto, Canada.
           </p>
-          <p className="text-xs text-white/30">Toronto, Canada</p>
+          <a href="#hero" className="text-[length:var(--step-small)] text-white/70 hover:text-white transition-colors">
+            Back to top
+          </a>
         </div>
+
+        <p className="mt-6 text-[length:var(--step-small)] text-white/65 max-w-3xl">
+          Pictures:{" "}
+          <a
+            href="https://commons.wikimedia.org/w/index.php?curid=149895381"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-white/60"
+          >
+            &ldquo;Canadian Passports - Old and New&rdquo;
+          </a>{" "}
+          by Jusfiq, CC BY-SA 4.0, via Wikimedia Commons;{" "}
+          <a
+            href="https://commons.wikimedia.org/w/index.php?curid=88155062"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-white/60"
+          >
+            &ldquo;Canadian passport (US UK stamps)&rdquo;
+          </a>{" "}
+          by Jon Evans, CC BY 2.0, via Wikimedia Commons;{" "}
+          <a
+            href="https://commons.wikimedia.org/w/index.php?curid=115962401"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-white/60"
+          >
+            &ldquo;CN Tower, Toronto, Ontario&rdquo;
+          </a>{" "}
+          by Ken Lund, CC BY-SA 2.0, via Wikimedia Commons;{" "}
+          <a
+            href="https://www.flickr.com/photos/41869756@N05/4312513225"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-white/60"
+          >
+            &ldquo;Vintage Camera&rdquo;
+          </a>{" "}
+          by anniehp, CC BY 2.0, via Flickr.
+        </p>
       </div>
     </footer>
   );
 }
-
-function InstagramGlyph({
-  className,
-  "aria-hidden": ariaHidden,
-}: {
-  className?: string;
-  "aria-hidden"?: boolean;
-}) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden={ariaHidden}
-    >
-      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-    </svg>
-  );
-}
-

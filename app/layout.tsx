@@ -1,23 +1,25 @@
 import type { Metadata } from "next";
-import { DM_Serif_Display, DM_Sans } from "next/font/google";
+import { Libre_Franklin, Source_Serif_4 } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
-const dmSerif = DM_Serif_Display({
-  weight: "400",
+const franklin = Libre_Franklin({
+  weight: "700",
   subsets: ["latin"],
-  variable: "--font-dm-serif",
+  variable: "--font-franklin",
   display: "swap",
 });
 
-const dmSans = DM_Sans({
+const sourceSerif = Source_Serif_4({
+  weight: ["400", "600"],
+  style: ["normal", "italic"],
   subsets: ["latin"],
-  variable: "--font-dm-sans",
+  variable: "--font-source-serif",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Maple Photo Imaging — Passport Photos Toronto",
+  title: "Maple Photo Imaging, Passport Photos Toronto",
   icons: {
     icon: { url: "/favicon.svg", type: "image/svg+xml" },
   },
@@ -34,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Maple Photo Imaging",
     description:
-      "Professional passport photos — ready in minutes. Government-compliant for 50+ countries.",
+      "Professional passport photos, ready in minutes. Government-compliant for 50+ countries.",
     url: "https://maplephotoimaging.ca",
     siteName: "Maple Photo Imaging",
     locale: "en_CA",
@@ -50,9 +52,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${dmSerif.variable} ${dmSans.variable}`}
+      className={`${franklin.variable} ${sourceSerif.variable}`}
     >
-      <body className="min-h-screen flex flex-col antialiased">
+      <body className="min-h-svh flex flex-col antialiased">
         {children}
 
         {/* LocalBusiness structured data for local SEO */}

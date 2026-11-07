@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
+import MapleMark from "@/components/ui/MapleMark";
 
 export default function AdminLoginPage() {
   const router = useRouter();
@@ -36,29 +37,20 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-brand-bg flex items-center justify-center px-4">
+    <div className="min-h-svh bg-paper flex items-center justify-center px-4">
       <div className="w-full max-w-sm">
-        {/* Logo */}
         <div className="text-center mb-8">
-          <span className="text-3xl" aria-hidden="true">🍁</span>
-          <h1 className="font-heading text-xl text-text-primary mt-2">
-            Maple Photo Imaging
-          </h1>
-          <p className="text-sm text-text-secondary mt-1">Admin access</p>
+          <MapleMark className="w-8 h-8 text-accent mx-auto" />
+          <h1 className="font-display text-xl text-ink mt-2">Maple Photo Imaging</h1>
+          <p className="text-sm text-ink-soft mt-1">Admin access</p>
         </div>
 
-        {/* Card */}
-        <div className="bg-white rounded-2xl border border-border shadow-sm p-7">
-          <h2 className="text-base font-semibold text-text-primary mb-6">
-            Sign in
-          </h2>
+        <div className="bg-white border border-border p-7">
+          <h2 className="text-base font-semibold text-ink mb-6">Sign in</h2>
 
           <form onSubmit={handleSubmit} noValidate>
             <div className="mb-4">
-              <label
-                htmlFor="password"
-                className="block text-sm font-medium text-text-primary mb-1.5"
-              >
+              <label htmlFor="password" className="block text-sm font-medium text-ink mb-1.5">
                 Password
               </label>
               <input
@@ -68,7 +60,7 @@ export default function AdminLoginPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 autoComplete="current-password"
-                className="w-full border border-border rounded-xl px-4 py-2.5 text-sm text-text-primary placeholder:text-text-secondary focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
+                className="w-full border border-border px-4 py-2.5 text-sm text-ink placeholder:text-ink-soft focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors"
                 placeholder="Enter admin password"
               />
             </div>
@@ -82,15 +74,15 @@ export default function AdminLoginPage() {
             <button
               type="submit"
               disabled={loading || !password}
-              className="w-full bg-primary hover:bg-primary-dark disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold py-2.5 rounded-full text-sm transition-all duration-200"
+              className="w-full bg-ink hover:bg-accent disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold py-2.5 text-sm transition-colors"
             >
-              {loading ? "Signing in…" : "Sign In"}
+              {loading ? "Signing in…" : "Sign in"}
             </button>
           </form>
         </div>
 
-        <p className="text-center text-xs text-text-secondary mt-4">
-          <a href="/" className="hover:text-primary transition-colors">
+        <p className="text-center text-xs text-ink-soft mt-4">
+          <a href="/" className="hover:text-accent transition-colors">
             ← Back to website
           </a>
         </p>

@@ -42,3 +42,6 @@ next-env.d.ts
 
 # Claude Code skills (third-party tooling, not project source)
 .claude/skills/
+
+# taste-skill working folder (design-iteration screenshots/reports, not project source)
+.taste-skill/

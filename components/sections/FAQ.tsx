@@ -1,90 +1,41 @@
-"use client";
-
-import { useState } from "react";
-import { Plus, Minus } from "lucide-react";
 import { FAQ_ITEMS } from "@/lib/constants";
 
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
-
   return (
-    <section id="faq" className="py-20 lg:py-28 bg-white">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6">
+    <section id="faq" className="bg-lime text-ink py-16 md:py-20 min-h-[90svh]">
+      <div className="px-4 sm:px-6 lg:px-10 grid grid-cols-1 md:grid-cols-12 gap-x-6">
+        <h2 className="md:col-span-4 font-display font-display-title text-[length:var(--step-head)] leading-[1.02] md:sticky md:top-24 self-start mb-8 md:mb-0">
+          Questions?
+        </h2>
 
-        {/* Header */}
-        <div className="text-center mb-14">
-          <p className="text-xs font-bold uppercase tracking-[0.15em] text-primary mb-4">
-            FAQ
-          </p>
-          <h2 className="font-heading text-3xl sm:text-4xl font-bold text-house-green mb-4 tracking-tight">
-            Frequently Asked Questions
-          </h2>
-          <p className="text-text-secondary text-lg">
-            Everything you need to know before your visit.
-          </p>
+        <div className="md:col-start-5 md:col-span-8 space-y-2">
+          {FAQ_ITEMS.map((item) => (
+            <details key={item.question} name="faq" className="group bg-white open:bg-accent open:text-white">
+              <summary className="list-none cursor-pointer flex items-center justify-between gap-4 px-5 py-5 min-h-[72px]">
+                <span className="text-[length:var(--step-body)] font-medium">{item.question}</span>
+                <span className="relative w-4 h-4 shrink-0" aria-hidden="true">
+                  <span className="absolute inset-0 top-1/2 h-[3px] -translate-y-1/2 bg-current" />
+                  <span className="absolute inset-0 top-1/2 h-[3px] -translate-y-1/2 bg-current rotate-90 group-open:rotate-0 transition-transform" />
+                </span>
+              </summary>
+              <p className="px-5 pb-6 text-[length:var(--step-body)] leading-relaxed max-w-[52ch]">
+                {item.answer}
+              </p>
+            </details>
+          ))}
         </div>
+      </div>
 
-        {/* Accordion */}
-        <div className="divide-y divide-[#e7e7e7]" role="list">
-          {FAQ_ITEMS.map((item, i) => {
-            const isOpen = openIndex === i;
-            return (
-              <div key={i} role="listitem">
-                <button
-                  onClick={() => toggle(i)}
-                  className="w-full flex items-center justify-between gap-4 py-5 text-left group cursor-pointer"
-                  aria-expanded={isOpen}
-                  aria-controls={`faq-answer-${i}`}
-                  id={`faq-question-${i}`}
-                >
-                  <span
-                    className={`font-medium text-sm sm:text-base transition-colors ${
-                      isOpen ? "text-primary" : "text-text-primary group-hover:text-primary"
-                    }`}
-                  >
-                    {item.question}
-                  </span>
-                  <span
-                    className={`flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-all duration-200 ${
-                      isOpen
-                        ? "bg-primary text-white"
-                        : "bg-brand-bg text-text-secondary group-hover:bg-green-light group-hover:text-primary"
-                    }`}
-                    aria-hidden="true"
-                  >
-                    {isOpen ? <Minus size={14} /> : <Plus size={14} />}
-                  </span>
-                </button>
-
-                <div
-                  id={`faq-answer-${i}`}
-                  role="region"
-                  aria-labelledby={`faq-question-${i}`}
-                  className={`overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${
-                    isOpen ? "max-h-48 pb-5" : "max-h-0"
-                  }`}
-                >
-                  <p className="text-sm text-text-secondary leading-relaxed">{item.answer}</p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* CTA block — dark green band */}
-        <div className="mt-12 bg-house-green rounded-xl p-8 text-center">
-          <p className="text-white/70 text-sm mb-5">
-            Still have questions? We&apos;re happy to help.
-          </p>
-          <a
-            href="#location"
-            className="inline-flex items-center gap-2 bg-white text-primary font-semibold px-6 py-2.5 rounded-full text-sm hover:bg-green-light active:scale-95 transition-all duration-200"
-          >
-            Contact Us
-          </a>
-        </div>
+      <div className="px-4 sm:px-6 lg:px-10 pt-12 text-left">
+        <p className="text-[length:var(--step-body)] mb-5">
+          Still have questions? We&apos;re happy to help.
+        </p>
+        <a
+          href="#location"
+          className="inline-block bg-ink text-white font-medium px-6 py-3 text-[length:var(--step-small)] hover:bg-accent transition-colors"
+        >
+          Contact us
+        </a>
       </div>
     </section>
   );
