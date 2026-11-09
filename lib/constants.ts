@@ -148,7 +148,7 @@ export const REVIEWS: Review[] = [
   },
   {
     quote:
-      "Brought my 6-month-old in for passport photos — they were so patient and skilled with her. Got the perfect shot on the first try. Highly recommend!",
+      "Brought my 6-month-old in for passport photos. They were so patient and skilled with her. Got the perfect shot on the first try. Highly recommend!",
     name: "Jennifer K.",
     date: "January 2026",
     rating: 5,
@@ -164,17 +164,17 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "What should I wear for my passport photo?",
     answer:
-      "Avoid white or very light tops — they can blend into the white background. Glasses are generally not permitted for most government IDs. Natural makeup is perfectly fine.",
+      "Avoid white or very light tops, since they can blend into the white background. Glasses are generally not permitted for most government IDs. Natural makeup is perfectly fine.",
   },
   {
     question: "How long does it take?",
     answer:
-      "Most appointments take 10–15 minutes from arrival to prints in hand. Walk-in sessions are similar — no long waits.",
+      "Most appointments take 10–15 minutes from arrival to prints in hand. Walk-in sessions are similar, with no long waits.",
   },
   {
     question: "Will my photo be accepted by the government?",
     answer:
-      "Yes — we guarantee compliance with all applicable standards. If your photo is ever rejected, we retake it for free, no questions asked.",
+      "Yes. We guarantee compliance with all applicable standards. If your photo is ever rejected, we retake it for free, no questions asked.",
   },
   {
     question: "Do you photograph children and infants?",
@@ -189,7 +189,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "Do I need an appointment?",
     answer:
-      "No appointment is needed — walk-ins are always welcome during business hours. Book online if you'd prefer a guaranteed time slot and skip any potential wait.",
+      "No appointment is needed. Walk-ins are always welcome during business hours. Book online if you'd prefer a guaranteed time slot and skip any potential wait.",
   },
 ];
 
@@ -217,7 +217,7 @@ export const PHOTO_PRINTING = {
   ] as PrintSize[],
   acceptedMedia: ["USB drive", "SD card", "CF card", "Memory stick"],
   notAccepted: "We do not accept photos sent via phone, email, or cloud link.",
-  enlargingNote: "Bring your original physical photo — we enlarge or copy it at the same rates as digital prints.",
+  enlargingNote: "Bring your original physical photo, and we'll enlarge or copy it at the same rates as digital prints.",
 };
 
 export const TRUST_BADGES = [

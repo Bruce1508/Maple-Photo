@@ -1,20 +1,12 @@
 import type { Metadata } from "next";
-import { Libre_Franklin, Source_Serif_4 } from "next/font/google";
+import { Hanken_Grotesk } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
-const franklin = Libre_Franklin({
-  weight: "700",
+const hanken = Hanken_Grotesk({
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
-  variable: "--font-franklin",
-  display: "swap",
-});
-
-const sourceSerif = Source_Serif_4({
-  weight: ["400", "600"],
-  style: ["normal", "italic"],
-  subsets: ["latin"],
-  variable: "--font-source-serif",
+  variable: "--font-hanken",
   display: "swap",
 });
 
@@ -50,10 +42,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${franklin.variable} ${sourceSerif.variable}`}
-    >
+    <html lang="en" className={hanken.variable}>
       <body className="min-h-svh flex flex-col antialiased">
         {children}
 

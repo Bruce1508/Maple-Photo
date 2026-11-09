@@ -8,21 +8,21 @@ export default function Booking() {
   const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL;
 
   return (
-    <section id="booking" className="bg-paper text-ink py-16 md:py-20 min-h-[90svh] flex flex-col justify-center">
-      <div className="px-4 sm:px-6 lg:px-10 grid grid-cols-12 gap-x-6">
+    <section id="booking" className="bg-bg text-ink py-16 md:py-24 min-h-[90svh] flex flex-col justify-center max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
+      <div className="grid grid-cols-12 gap-x-6">
         <Reveal className="col-span-12 md:col-span-5">
-          <h2 className="font-display font-display-title text-[length:var(--step-head)] leading-[1.05]">
+          <h2 className="font-display text-[length:var(--step-head)] leading-[1.05]">
             Book your appointment.
           </h2>
-          <p className="mt-5 text-[length:var(--step-lead)] max-w-sm">
+          <p className="mt-5 text-[length:var(--step-lead)] text-ink-soft max-w-sm">
             Pick a time that works. You&apos;ll get an email confirmation right away.
           </p>
-          <p className="mt-6 text-[length:var(--step-body)] max-w-sm">
+          <p className="mt-6 text-[length:var(--step-body)] text-ink-soft max-w-sm">
             Prefer to walk in? We welcome walk-ins during all business hours, no appointment needed.
           </p>
         </Reveal>
 
-        <Reveal delay={120} className="col-span-12 md:col-start-7 md:col-span-6 mt-12 md:mt-0 border-4 border-ink">
+        <Reveal delay={120} className="col-span-12 md:col-start-7 md:col-span-6 mt-12 md:mt-0 bg-surface rounded-[var(--radius-card)] shadow-[var(--shadow-card)] overflow-hidden">
           {calendlyUrl ? (
             <>
               <div

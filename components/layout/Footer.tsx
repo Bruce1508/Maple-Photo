@@ -4,18 +4,18 @@ import Reveal from "@/components/ui/Reveal";
 
 export default function Footer() {
   return (
-    <footer className="bg-olive text-white">
-      <div className="px-4 sm:px-6 lg:px-10 pt-14 lg:pt-20 pb-10">
+    <footer className="bg-ink text-white rounded-t-[var(--radius-card)] mt-4">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 pt-14 lg:pt-20 pb-10">
         <Reveal className="flex items-center gap-3 mb-14 lg:mb-20">
-          <MapleMark className="w-8 h-8 lg:w-10 lg:h-10 text-lime shrink-0" />
-          <span className="font-display font-display-title text-[length:var(--step-display)] leading-none">Maple</span>
+          <MapleMark className="w-8 h-8 lg:w-10 lg:h-10 text-accent shrink-0" />
+          <span className="font-display text-[length:var(--step-display)] leading-none">Maple</span>
         </Reveal>
 
         <div className="grid grid-cols-12 gap-x-6 gap-y-10">
           <div className="col-span-12 md:col-span-5 space-y-2">
             <a
               href={`tel:${BUSINESS.phone}`}
-              className="block text-[length:var(--step-lead)] font-display text-lime hover:text-white transition-colors"
+              className="block text-[length:var(--step-lead)] font-display text-white hover:text-accent transition-colors"
             >
               {BUSINESS.phone}
             </a>
@@ -23,7 +23,7 @@ export default function Footer() {
               href={BUSINESS.googleMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="block text-[length:var(--step-lead)] font-display text-lime hover:text-white transition-colors"
+              className="block text-[length:var(--step-lead)] font-display text-white hover:text-accent transition-colors"
             >
               {BUSINESS.address}
             </a>
